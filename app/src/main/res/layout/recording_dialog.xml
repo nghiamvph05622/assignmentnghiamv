@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#ff162533"
+    android:background="#d6d6d6"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin">
@@ -24,7 +24,7 @@
             android:clickable="true"
             android:drawableLeft="@drawable/ic_fiber_manual_record_black_24dp"
             android:paddingLeft="5dp"
-            android:text="record"
+            android:text="Ghi âm"
             android:textColor="#ff000000"
             android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
             android:layout_marginTop="10dp"
             android:background="#ffffffff"
             android:paddingLeft="5dp"
-            android:text="Cancel"
+            android:text="Hủy"
             android:textColor="#ff000000"
             android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
             android:layout_marginTop="10dp"
             android:background="#ffffffff"
             android:paddingLeft="5dp"
-            android:text="save"
+            android:text="Lưu"
             android:textColor="#ff000000"
             android:textStyle="bold" />
     </LinearLayout>

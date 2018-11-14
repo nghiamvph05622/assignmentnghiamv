@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="200dp"
     android:layout_height="200dp"
-    android:background="#ff162533"
+    android:background="#d6d6d6"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -18,7 +18,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:paddingLeft="5dp"
-        android:text="Add"
+        android:text="Thêm"
         android:textColor="#ff000000"
         android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:paddingLeft="5dp"
-        android:text="Remove"
+        android:text="Xóa"
         android:textColor="#ff000000"
         android:textStyle="bold" />
 
@@ -47,7 +47,7 @@
         android:clickable="true"
         android:drawableLeft="@drawable/ic_person_add_black_24dp"
         android:paddingLeft="5dp"
-        android:text="Choose Character"
+        android:text="Chọn"
         android:textColor="#ff000000"
         android:textStyle="bold" />
 </LinearLayout>

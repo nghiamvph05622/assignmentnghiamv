@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -29,6 +30,7 @@ import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
 import static android.view.WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
 
 public class CallActivity extends AppCompatActivity {
+    ImageView dailpad;
     ImageView accept;
     RelativeLayout attend;
     boolean attended = false;
@@ -56,7 +58,6 @@ public class CallActivity extends AppCompatActivity {
     Thread t;
     InterstitialAd mInterstitialAd;
     AdRequest adRequestint;
-
     @TargetApi(16)
     protected void onCreate(Bundle savedInstanceState) {
         locked = ((KeyguardManager) getSystemService("keyguard")).inKeyguardRestrictedInputMode();
@@ -67,7 +68,7 @@ public class CallActivity extends AppCompatActivity {
         window.addFlags(FLAG_TURN_SCREEN_ON);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call2);
-        loadInterstitialAd();
+//        loadInterstitialAd();
         context = this;
         calling = (RelativeLayout) findViewById(R.id.calling);
         callerImg = (ImageView) findViewById(R.id.caller_image);
@@ -83,17 +84,27 @@ public class CallActivity extends AppCompatActivity {
         main = Thread.currentThread();
         main.setName("Main Thread");
         setCaller();
-
+        ImageView dailpad = findViewById(R.id.dailpad);
+        // hiding the soft keyboard
+        hideSoftKeyboard(dailpad);
+        // showing the soft keyboard
+        showSoftKeyboard(dailpad);
+//        dailpad.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                hideSoftKeyboard(view);
+//                showSoftKeyboard(view);
+//            }
+//        });
     }
-    private void loadInterstitialAd() {
-        adRequestint = new AdRequest.Builder().addTestDevice("0224C93FFD644350DCD7F3D7557C6A5C").build();
-        mInterstitialAd = new InterstitialAd(getApplicationContext());
-        mInterstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_full_screen));
-        mInterstitialAd.loadAd(adRequestint);
+    public void hideSoftKeyboard(View view) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
-    private void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
+    public void showSoftKeyboard(View view) {
+        if (view.requestFocus()) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
         }
     }
 
@@ -150,7 +161,7 @@ public class CallActivity extends AppCompatActivity {
         };
         t.start();
     }
-
+    // set time cho cuoc goi
     private String updateTime() {
         sec++;
         String time = "";
@@ -315,19 +326,19 @@ public class CallActivity extends AppCompatActivity {
                 callerImg.setImageResource(R.drawable.person);
                 return;
             case 1:
-                callerImg.setImageResource(R.drawable.gallery_btn_0);
+                callerImg.setImageResource(R.drawable.avt1);
                 return;
             case 2:
-                callerImg.setImageResource(R.drawable.gallery_btn_1);
+                callerImg.setImageResource(R.drawable.avt2);
                 return;
             case 3:
-                callerImg.setImageResource(R.drawable.gallery_btn_2);
+                callerImg.setImageResource(R.drawable.avt3);
                 return;
             case 4:
-                callerImg.setImageResource(R.drawable.gallery_btn_3);
+                callerImg.setImageResource(R.drawable.avt4);
                 return;
             case 5:
-                callerImg.setImageResource(R.drawable.gallery_btn_4);
+                callerImg.setImageResource(R.drawable.avt5);
                 return;
             default:
                 callerImg.setImageDrawable(Drawable.createFromPath(image));
@@ -376,7 +387,12 @@ public class CallActivity extends AppCompatActivity {
 
     public void endCall(View view) {
         startActivity(new Intent(this, MainActivity.class));
-        showInterstitial();
+//        showInterstitial();
         finish();
+    }
+
+    public void showboard(View view) {
+        showSoftKeyboard(view);
+        hideSoftKeyboard(view);
     }
 }

@@ -17,75 +17,99 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:id="@+id/_now"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/button_shape"
             android:onClick="onButtonClick"
-            android:text="Now"
+            android:text="Gọi luôn"
             android:textColor="#ffffffff" />
 
         <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:id="@+id/_10s"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/button_shape"
             android:onClick="onButtonClick"
-            android:text="10 Sec"
+            android:text="gọi sau 10 giây"
             android:textColor="#ffffffff" />
 
         <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:id="@+id/_30s"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/button_shape"
             android:onClick="onButtonClick"
-            android:text="30 Sec"
+            android:text="gọi sau 30 giây"
             android:textColor="#ffffffff" />
 
         <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:id="@+id/_01m"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/button_shape"
             android:onClick="onButtonClick"
-            android:text="1 Min"
+            android:text="gọi sau 1 phút"
             android:textColor="#ffffffff" />
 
         <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:id="@+id/_5m"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/button_shape"
             android:onClick="onButtonClick"
-            android:text="5 Min"
+            android:text="gọi sau 5 phút"
             android:textColor="#ffffffff" />
 
         <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:id="@+id/_15m"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/button_shape"
             android:onClick="onButtonClick"
-            android:text="15 Min"
+            android:text="gọi sau 15 phút"
             android:textColor="#ffffffff" />
 
         <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:id="@+id/_30m"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/button_shape"
             android:onClick="onButtonClick"
-            android:text="30 Min"
+            android:text="gọi sau 30 phút"
             android:textColor="#ffffffff" />
-
+        <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:id="@+id/btback"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/button_shape"
+            android:text="Trở lại"
+            android:onClick="btback"
+            android:textColor="#ffffffff" />
     </LinearLayout>
 
     <!--<RelativeLayout-->

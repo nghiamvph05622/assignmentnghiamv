@@ -42,7 +42,7 @@ public class CustomDialog extends Dialog implements OnClickListener {
             } else {
                 remove.setText(path.substring(path.lastIndexOf("/") + 1));
             }
-            choose.setText("Record");
+            choose.setText("Ghi lại");
             img = getContext().getResources().getDrawable(R.drawable.ic_record_voice_over_black_24dp);
             img.setBounds(0, 0, 60, 60);
             choose.setCompoundDrawables(img, null, null, null);
@@ -50,7 +50,7 @@ public class CustomDialog extends Dialog implements OnClickListener {
             choose.setVisibility(View.GONE);
             path = sharedPref.getString("ring", "");
             if (path.equals("")) {
-                add.setText("Select Ringtone");
+                add.setText("Chọn nhạc chuông");
                 img = getContext().getResources().getDrawable(R.drawable.ic_audiotrack_black_24dp);
                 img.setBounds(0, 0, 60, 60);
                 add.setCompoundDrawables(img, null, null, null);
@@ -60,7 +60,7 @@ public class CustomDialog extends Dialog implements OnClickListener {
                 img.setBounds(0, 0, 60, 60);
                 add.setCompoundDrawables(img, null, null, null);
             }
-            remove.setText("Default");
+            remove.setText("Mặc định");
             img = getContext().getResources().getDrawable(R.drawable.ic_refresh_black_24dp);
             img.setBounds(0, 0, 60, 60);
             remove.setCompoundDrawables(img, null, null, null);

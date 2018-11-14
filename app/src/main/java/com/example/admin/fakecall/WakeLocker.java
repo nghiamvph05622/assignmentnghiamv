@@ -12,8 +12,8 @@ public abstract class WakeLocker {
         if (wakeLock != null) {
             wakeLock.release();
         }
-        wakeLock = ((PowerManager) ctx.getSystemService("power")).newWakeLock(PowerManager.FULL_WAKE_LOCK, "com.techx.fakecallprank");
-        ((KeyguardManager) ctx.getSystemService("keyguard")).newKeyguardLock("com.techx.fakecallprank").disableKeyguard();
+        wakeLock = ((PowerManager) ctx.getSystemService("power")).newWakeLock(PowerManager.FULL_WAKE_LOCK, "com.example.admin.fakecall");
+        ((KeyguardManager) ctx.getSystemService("keyguard")).newKeyguardLock("com.example.admin.fakecall").disableKeyguard();
         wakeLock.acquire();
     }
 

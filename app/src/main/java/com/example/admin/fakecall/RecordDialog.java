@@ -82,7 +82,7 @@ public class RecordDialog extends Dialog implements OnClickListener {
         try {
             mRecorder.prepare();
             mRecorder.start();
-            record.setText("recording");
+            record.setText("ghi âm");
         } catch (IOException e) {
             Log.e("APP", "prepare() failed");
         }
@@ -96,7 +96,7 @@ public class RecordDialog extends Dialog implements OnClickListener {
             }
         } catch (Exception e) {
         }
-        record.setText("record");
+        record.setText("ghi lại");
     }
 
     private void onPlay(boolean started) {
@@ -144,7 +144,7 @@ public class RecordDialog extends Dialog implements OnClickListener {
     public void onBackPressed() {
         onPlay(true);
         onRecord(true);
-        Toast.makeText(c, "back", 0).show();
+        Toast.makeText(c, "trở lại", 0).show();
         super.onBackPressed();
     }
 
@@ -216,7 +216,7 @@ public class RecordDialog extends Dialog implements OnClickListener {
                             Editor editor = sharedPref.edit();
                             editor.putString("audio", Environment.getExternalStorageDirectory().getAbsolutePath() + "/callervoice.3gp");
                             editor.apply();
-                            Toast.makeText(c, "Recorded Audio set to caller Voice", 0).show();
+                            Toast.makeText(c, "Đã ghi âm thanh được đặt thành giọng nói của người gọi", 0).show();
                             return;
                         } catch (FileNotFoundException e4) {
                             fnfe1 = e4;

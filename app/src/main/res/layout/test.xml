@@ -5,7 +5,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
     <com.mikhaellopez.circularimageview.CircularImageView
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:hint="Name"
+                android:hint="Nhập tên"
                 android:textColor="#ffffff"
                 android:textColorHint="#F6F6F6" />
         </android.support.design.widget.TextInputLayout>
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
-                android:hint="Number"
+                android:hint="Nhập số điện thoại"
                 android:inputType="phone"
                 android:textColor="#ffffff"
                 android:textColorHint="#F6F6F6" />
@@ -83,7 +83,7 @@
                 android:drawableTop="@drawable/ic_phonelink_ring_white_36dp"
                 android:gravity="center"
                 android:onClick="ringtoneClick"
-                android:text="Ringtone"
+                android:text="Nhạc chuông"
                 android:textColor="#ffffffff"
                 android:textSize="14sp" />
 
@@ -97,7 +97,7 @@
                 android:drawableTop="@drawable/ic_person_white_36dp"
                 android:gravity="center"
                 android:onClick="characterClick"
-                android:text="Charcter"
+                android:text="Danh bạ"
                 android:textColor="#ffffffff"
                 android:textSize="14sp" />
 
@@ -111,13 +111,14 @@
                 android:drawableTop="@drawable/ic_record_voice_over_white"
                 android:gravity="center"
                 android:onClick="soundClick"
-                android:text="Add Voice"
+                android:text="Thêm nhạc"
                 android:textColor="#ffffffff"
                 android:textSize="14sp" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:gravity="center"
@@ -126,35 +127,33 @@
             <Button
                 android:id="@+id/button2"
                 android:layout_width="250dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="55dp"
+                android:layout_height="50dp"
                 android:background="@drawable/button_shape"
                 android:onClick="scheduleClick"
-                android:text="Schedule"
+                android:text="Thực hiện cuộc gọi"
                 android:textColor="#ffffffff" />
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="250dp"
-                android:layout_height="45dp"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
                 android:layout_alignLeft="@id/button2"
                 android:layout_below="@id/button2"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_shape"
                 android:onClick="moreAppsClick"
-                android:text="More Apps"
+                android:text="Chia sẻ"
                 android:textColor="#ffffffff" />
 
         </LinearLayout>
 
     </LinearLayout>
-    <!--<com.google.android.gms.ads.AdView-->
-        <!--android:id="@+id/banner_AdView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--ads:adSize="SMART_BANNER"-->
-        <!--ads:adUnitId="@string/banner_home" />-->
+    <ImageView
+        android:src="@drawable/logocall"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -21,7 +21,7 @@
         android:layout_below="@id/caller_image"
         android:layout_marginTop="33dp"
         android:gravity="center"
-        android:text="Girl Friend"
+        android:text="Vợ Yêu"
         android:textColor="#ffffffff"
         android:textSize="25sp" />
 
@@ -32,7 +32,7 @@
         android:layout_below="@id/caller_name"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="03036666172"
+        android:text="0969569142"
         android:textSize="15sp" />
 
     <RelativeLayout
@@ -49,10 +49,10 @@
             android:layout_above="@+id/gif_answer"
             android:layout_alignLeft="@+id/gif_answer"
             android:layout_marginBottom="26dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_message_black_24dp"
-            android:text="Message" />
+            android:text="Nhắn tin" />
 
         <ImageView
             android:id="@+id/gif_answer"
@@ -83,10 +83,9 @@
             android:layout_above="@id/gif_reject"
             android:layout_alignLeft="@id/gif_reject"
             android:layout_marginBottom="26dp"
-            android:layout_marginLeft="10dp"
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_alarm_black_24dp"
-            android:text="Reminder" />
+            android:text="Hẹn giờ gọi" />
     </RelativeLayout>
 
     <TextView
@@ -97,7 +96,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="25dp"
         android:gravity="center"
-        android:text="IN CALL"
+        android:text="Trong cuộc gọi"
         android:textColor="#ffffffff"
         android:textSize="15sp"
         android:visibility="gone" />
@@ -130,8 +129,9 @@
             android:layout_alignRight="@+id/mute"
             android:layout_alignTop="@+id/calender"
             android:drawablePadding="4dp"
+            android:paddingRight="10dp"
             android:drawableTop="@drawable/ic_phone_paused_black_24dp"
-            android:text="Hold" />
+            android:text="Giữ" />
 
         <TextView
             android:id="@+id/calender"
@@ -143,7 +143,7 @@
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_perm_contact_calendar_black_24dp"
             android:paddingLeft="40dp"
-            android:text="Calender" />
+            android:text="Hẹn lịch" />
 
         <TextView
             android:id="@+id/note"
@@ -154,7 +154,7 @@
             android:layout_alignLeft="@+id/contacts"
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_note_add_black_24dp"
-            android:text="Notepad" />
+            android:text="Ghi chú" />
 
         <TextView
             android:id="@+id/addcall"
@@ -163,8 +163,9 @@
             android:layout_alignRight="@id/calender"
             android:layout_centerVertical="true"
             android:drawablePadding="4dp"
+            android:paddingRight="10dp"
             android:drawableTop="@drawable/addcall"
-            android:text="Add Call" />
+            android:text="Thêm" />
 
         <TextView
             android:id="@+id/contacts"
@@ -175,7 +176,7 @@
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_person_pin_black_24dp"
             android:paddingRight="40dp"
-            android:text="Contacts" />
+            android:text="Liên hệ" />
 
         <TextView
             android:id="@+id/mute"
@@ -185,7 +186,7 @@
             android:layout_centerHorizontal="true"
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_mic_black_24dp"
-            android:text="Mute" />
+            android:text="Tắt âm" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -202,6 +203,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/speaker"
                 android:paddingRight="50dp"
+                android:onClick="showboard"
                 android:src="@drawable/ic_dialpad_black_24dp" />
 
             <ImageView
@@ -224,5 +226,10 @@
                 android:paddingTop="3dp"
                 android:src="@drawable/end_call" />
         </RelativeLayout>
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </GridView>
     </RelativeLayout>
 </RelativeLayout>

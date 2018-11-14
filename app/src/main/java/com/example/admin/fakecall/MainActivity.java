@@ -100,19 +100,19 @@ public class MainActivity extends AppCompatActivity {
                 callerImage.setImageResource(R.drawable.person_add_grey);
                 return;
             case 1:
-                callerImage.setImageResource(R.drawable.gallery_btn_0);
+                callerImage.setImageResource(R.drawable.avt1);
                 return;
             case 2:
-                callerImage.setImageResource(R.drawable.gallery_btn_1);
+                callerImage.setImageResource(R.drawable.avt2);
                 return;
             case 3:
-                callerImage.setImageResource(R.drawable.gallery_btn_2);
+                callerImage.setImageResource(R.drawable.avt3);
                 return;
             case 4:
-                callerImage.setImageResource(R.drawable.gallery_btn_3);
+                callerImage.setImageResource(R.drawable.avt4);
                 return;
             case 5:
-                callerImage.setImageResource(R.drawable.gallery_btn_4);
+                callerImage.setImageResource(R.drawable.avt5);
                 return;
             default:
                 callerImage.setImageDrawable(Drawable.createFromPath(image));
@@ -120,53 +120,53 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void rateUs() {
-        final SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", 0);
-        AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog_Alert);
-        alert.setTitle("Rate Us:");
-        alert.setMessage(getString(R.string.rate_dialog_message));
-        alert.setPositiveButton(getString(R.string.rate_dialog_ok), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                try {
-                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + getPackageName())));
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
-                }
-                sharedpreferences.edit().putBoolean("rate", true).apply();
-                dialog.dismiss();
-                finish();
-            }
-        });
-        alert.setNegativeButton(getString(R.string.rate_dialog_no), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                finish();
-                sharedpreferences.edit().putBoolean("rate", true).apply();
-            }
-        });
-        alert.setNeutralButton(getString(R.string.rate_dialog_cancel), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                finish();
-                sharedpreferences.edit().putBoolean("remind", true).apply();
-            }
-        });
-        alert.create();
-        alert.show();
-    }
-
-    public void onBackPressed() {
-        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", 0);
-        boolean alreadyRated = sharedpreferences.getBoolean("rate", false);
-        boolean remindMeLater = sharedpreferences.getBoolean("remind", false);
-        if (!alreadyRated) {
-            rateUs();
-        } else if (alreadyRated && remindMeLater) {
-            rateUs();
-        } else {
-            super.onBackPressed();
-        }
-    }
+//    public void rateUs() {
+//        final SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", 0);
+//        AlertDialog.Builder alert = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog_Alert);
+//        alert.setTitle("Rate Us:");
+//        alert.setMessage(getString(R.string.rate_dialog_message));
+//        alert.setPositiveButton(getString(R.string.rate_dialog_ok), new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int which) {
+//                try {
+//                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + getPackageName())));
+//                } catch (ActivityNotFoundException e) {
+//                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+//                }
+//                sharedpreferences.edit().putBoolean("rate", true).apply();
+//                dialog.dismiss();
+//                finish();
+//            }
+//        });
+//        alert.setNegativeButton(getString(R.string.rate_dialog_no), new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//                finish();
+//                sharedpreferences.edit().putBoolean("rate", true).apply();
+//            }
+//        });
+//        alert.setNeutralButton(getString(R.string.rate_dialog_cancel), new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//                finish();
+//                sharedpreferences.edit().putBoolean("remind", true).apply();
+//            }
+//        });
+//        alert.create();
+//        alert.show();
+//    }
+//
+//    public void onBackPressed() {
+//        SharedPreferences sharedpreferences = getSharedPreferences("MyPREFERENCES", 0);
+//        boolean alreadyRated = sharedpreferences.getBoolean("rate", false);
+//        boolean remindMeLater = sharedpreferences.getBoolean("remind", false);
+//        if (!alreadyRated) {
+//            rateUs();
+//        } else if (alreadyRated && remindMeLater) {
+//            rateUs();
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -268,12 +268,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, ScheduleActivity.class));
         finish();
     }
-
+    //chia se ung dung
     public void moreAppsClick(View v) {
         ON_CLICK = ON_MORE_CLICK;
-        Intent intent = new Intent("android.intent.action.VIEW");
-        intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id="+getResources().getString(R.string.developer_id)));
-        startActivity(intent);
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = "Ứng dụng giải trí số 1 Việt Nam.\n\n";
+        shareBody = shareBody + "https://www.facebook.com/nghia.dep.trai.IT \n\n";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Giả Lập Cuộc Gọi");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Chia sẻ apps này với"));
     }
 
     public void characterClick(View view) {
@@ -414,7 +418,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        Toast.makeText(this, "Permission to Access Storage:" + isExternalStorageWritable(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Cấp quyền truy cập bộ nhớ: " + isExternalStorageWritable(), Toast.LENGTH_LONG).show();
     }
 
     public boolean isExternalStorageWritable() {
@@ -441,7 +445,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, 4);
         } else {
-            Toast.makeText(this, "No app found!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Không tìm thấy ứng dụng nào!", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -451,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, 2);
         } else {
-            Toast.makeText(this, "No app found!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Không tìm thấy ứng dụng nào!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -460,7 +464,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, 3);
         } else {
-            Toast.makeText(this, "No app found!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Không tìm thấy ứng dụng nào!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -486,7 +490,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+//cat anh
     private void performCrop(Uri picUri) {
         try {
             Intent cropIntent = new Intent("com.android.camera.action.CROP");
@@ -505,7 +509,7 @@ public class MainActivity extends AppCompatActivity {
             cropIntent.putExtra("output", Uri.fromFile(f));
             startActivityForResult(cropIntent, 5);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "Whoops - your device doesn't support the crop action!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Rất tiếc - thiết bị của bạn không hỗ trợ tác vụ cắt ảnh!", Toast.LENGTH_LONG).show();
         }
     }
 }
